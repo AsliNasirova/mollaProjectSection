@@ -1,13 +1,12 @@
+// importlarim
 import React, { useEffect, useState } from "react";
-import useFetch from "../../hooks/useFetch";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faGlasses } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faRandom } from "@fortawesome/free-solid-svg-icons";
 import { Slider } from "antd"
-
-import "./products.scss";
+import './index.scss'
 import useFetch from './../../Hook/useFetch';
 
 function Products() {
@@ -151,7 +150,7 @@ function Products() {
                     <span onClick={clearAllFilters}>Clear All</span>
                 </div>
                 <div className="category">
-                    <h2 onClick={() => setIsCategoryOpen(!isCategoryOpen)}>Category <FontAwesomeIcon icon={faChevronDown} /></h2>
+                    <h3 onClick={() => setIsCategoryOpen(!isCategoryOpen)}>Category <FontAwesomeIcon icon={faChevronDown} /></h3>
                     {isCategoryOpen && (
                         <>
                             <label>
@@ -164,9 +163,7 @@ function Products() {
                                     />
                                     Women
                                 </div>
-                                <span>
-                                    1
-                                </span>
+                                <span>1</span>
                             </label>
                             <label>
                                 <div>
@@ -202,7 +199,7 @@ function Products() {
                                     />
                                     Jeans
                                 </div>
-                                <span>1</span>
+                                <span>3</span>
                             </label>
                             <label>
                                 <div>
@@ -215,7 +212,7 @@ function Products() {
                                     Shoes
                                 </div>
                                 <span>
-                                    2
+                                    3
                                 </span>
                             </label>
                             <label>
@@ -249,7 +246,7 @@ function Products() {
 
 
                 <div>
-                    <h2 className="colortext" onClick={() => setIsColorOpen(!isColorOpen)}>Color <FontAwesomeIcon icon={faChevronDown} /></h2>
+                    <h3 className="colortext" onClick={() => setIsColorOpen(!isColorOpen)}>Colour <FontAwesomeIcon icon={faChevronDown} /></h3>
                     {isColorOpen && (
                         <>
                             <div className="colors">
@@ -310,7 +307,7 @@ function Products() {
 
 
                 <div className="sizes">
-                    <h2 onClick={() => setIsSizeOpen(!isSizeOpen)}>Size <FontAwesomeIcon icon={faChevronDown} /></h2>
+                    <h3 onClick={() => setIsSizeOpen(!isSizeOpen)}>Size <FontAwesomeIcon icon={faChevronDown} /></h3>
                     {isSizeOpen && (
                         <>
                             <label>
@@ -385,7 +382,7 @@ function Products() {
 
 
                 <div className="brand">
-                    <h2 onClick={() => setIsBrandOpen(!isBrandOpen)}>Brand <FontAwesomeIcon icon={faChevronDown} /></h2>
+                    <h3 onClick={() => setIsBrandOpen(!isBrandOpen)}>Brand <FontAwesomeIcon icon={faChevronDown} /></h3>
                     {isBrandOpen && (
                         <>
                             <label>
@@ -407,7 +404,7 @@ function Products() {
                                         checked={selectedBrand.includes("Geox")}
                                         onChange={() => applyBrandFilter("Geox")}
                                     />
-                                    Geox
+                                    RiverIsland
                                 </div>
                             </label>
                             <label>
@@ -429,7 +426,7 @@ function Products() {
                                         checked={selectedBrand.includes("Ugg")}
                                         onChange={() => applyBrandFilter("Ugg")}
                                     />
-                                    Ugg
+                                    UGG
                                 </div>
                             </label>
                             <label>
@@ -451,7 +448,8 @@ function Products() {
                                         checked={selectedBrand.includes("RiverIsland")}
                                         onChange={() => applyBrandFilter("RiverIsland")}
                                     />
-                                    RiverIsland
+                                   
+                                    Geox
                                 </div>
                             </label>
 
@@ -460,7 +458,7 @@ function Products() {
                 </div>
 
 
-                <h2 onClick={() => setIsPriceOpen(!isPriceOpen)}>Price <FontAwesomeIcon icon={faChevronDown} /></h2>
+                <h3 onClick={() => setIsPriceOpen(!isPriceOpen)}>Price <FontAwesomeIcon icon={faChevronDown} /></h3>
                 {isPriceOpen && (
                     <>
                         <Slider
@@ -485,10 +483,18 @@ function Products() {
                     </div>
                     <div className="sortright">
                         <p>Sort by:</p>
-                        <div>
-                            <button className="sortbtn" onClick={handleAtoZ}>A-Z</button>
-                            <button className="sortbtn" onClick={handleZtoA}>Z-A</button>
-                        </div>
+                        <div className="toolbox_right">
+                            <div className="toolbox_sort">
+                             
+                                <div className="select-custom">
+                                    <select name="sortby" id="sortby" className='sort_control'>
+                                        <option value="popularty">Most Popular</option>
+                                        <option value="rating">Most Rated</option>
+                                        <option value="date">Date</option>
+                                    </select>
+                                </div>
+                            </div>
+                            </div>
                         <button onClick={sortByTwo}>
                             <svg width="10" height="10">
                                 <rect x="0" y="0" width="4" height="4"></rect>
